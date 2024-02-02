@@ -82,8 +82,9 @@ stages:
     - task: AzureFunctionApp@1
       displayName: Deploy function app
       inputs:
-        azureSubscription: $(serviceConnection)
-        appType: functionApp
-        appName: $(functionAppName)
+        azureSubscription: 'Azure subscription 1(9b1a2a01-3ffe-4a11-8496-45e657c12712)'
+        appType: 'functionApp'
+        appName: 'fabrikam-functions-20231231163936350'
         package: '$(Pipeline.Workspace)/FunctionApp/$(funcAppName)$(Build.BuildId).zip'
-        appSettings: $(appSettings)
+        appSettings: '$(appSettings)'
+        deploymentMethod: 'auto'
