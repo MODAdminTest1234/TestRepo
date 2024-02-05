@@ -1,4 +1,4 @@
-package com.function.ets.demo;
+package com.ms.samples.fabrikam_functions;
 
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.HttpMethod;
@@ -9,7 +9,9 @@ import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 
+import java.util.Map;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  * Azure Functions with HTTP Trigger.
@@ -28,10 +30,17 @@ public class Function {
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
-        context.getLogger().info("Java HTTP trigger processed a request.");
+    	Logger logger = context.getLogger();
+    	logger.info("Java HTTP trigger processed a request.");
+    	
+    	Map<String, String> queryParametersMap = request.getQueryParameters();
+    	String userLogin = queryParametersMap.get("UserLogin");
+    	String lastLoginTimeStamp = queryParametersMap.get("LastLoginTimeStamp");
+    	
+    	String requestBody = request.getBody().toString();
 
         // Parse query parameter
-        final String query = request.getQueryParameters().get("name");
+        final String query = queryParametersMap.get("name");
         final String name = request.getBody().orElse(query);
 
         if (name == null) {
