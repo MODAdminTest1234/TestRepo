@@ -7,7 +7,6 @@ name: $(BuildDefinitionName)_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
 
 variables:
   mavenPomFile : 'pom.xml'
-  location: 'East US'
   MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
 
 trigger:
@@ -58,7 +57,7 @@ stages:
     - task: ArchiveFiles@2
       displayName: Create zipped package
       inputs:
-        rootFolderOrFile: '$(Build.Repository.LocalPath)/target/azure-functions/DigitalIdentity-AsyncFunctions'
+        rootFolderOrFile: '$(Build.Repository.LocalPath)/target/azure-functions/HttpExample'
         includeRootFolder: false 
         archiveType: 'zip'
         archiveFile: '$(Build.ArtifactStagingDirectory)/$(funcAppName)$(Build.BuildId).zip' 
