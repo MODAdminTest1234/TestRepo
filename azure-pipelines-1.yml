@@ -85,5 +85,4 @@ stages:
         appType: 'functionApp'
         appName: 'fabrikam-functions-20231231163936350'
         package: '$(Pipeline.Workspace)/FunctionApp/$(funcAppName)$(Build.BuildId).zip'
-        appSettings: '$(appSettings)'
         deploymentMethod: 'auto'
