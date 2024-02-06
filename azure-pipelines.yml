@@ -57,7 +57,7 @@ stages:
     - task: ArchiveFiles@2
       displayName: Create zipped package
       inputs:
-        rootFolderOrFile: '$(Build.Repository.LocalPath)/target/azure-functions/ETSDemo-1706869066506'
+        rootFolderOrFile: '$(Build.Repository.LocalPath)/target/azure-functions/fabrikam-functions-20231231163936350'
         includeRootFolder: false 
         archiveType: 'zip'
         archiveFile: '$(Build.ArtifactStagingDirectory)/$(funcAppName)$(Build.BuildId).zip' 
