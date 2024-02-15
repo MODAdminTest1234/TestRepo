@@ -31,7 +31,7 @@ public class Function {
                 HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
     	Logger logger = context.getLogger();
-    	logger.error("Java HTTP trigger processed a request for check.");
+    	logger.info("Java HTTP trigger processed a request for check.");
     	
     	Map<String, String> queryParametersMap = request.getQueryParameters();
     	String userLogin = queryParametersMap.get("UserLogin");
