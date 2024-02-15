@@ -22,7 +22,7 @@ public class Function {
      * 1. curl -d "HTTP Body" {your host}/api/HttpExample
      * 2. curl "{your host}/api/HttpExample?name=HTTP%20Query"
      */
-    @FunctionName("NaveenTrigger123444")
+    @FunctionName("VideoDemo")
     public HttpResponseMessage run(
             @HttpTrigger(
                 name = "req",
@@ -31,7 +31,7 @@ public class Function {
                 HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
     	Logger logger = context.getLogger();
-    	logger.info("Java HTTP trigger processed a request.");
+    	logger.error("Java HTTP trigger processed a request for video demo.");
     	
     	Map<String, String> queryParametersMap = request.getQueryParameters();
     	String userLogin = queryParametersMap.get("UserLogin");
