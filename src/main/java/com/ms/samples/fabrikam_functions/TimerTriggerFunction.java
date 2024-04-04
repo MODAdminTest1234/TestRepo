@@ -60,7 +60,7 @@ public class TimerTriggerFunction {
 	
 	private Logger logger = null;
 
-	@FunctionName("AsyncLifeCycleManagement")
+	@FunctionName("RFPDemoCheck")
 	public void asyncLifeCycleManagement(
 			@TimerTrigger(
 				name = "timerInfo",
